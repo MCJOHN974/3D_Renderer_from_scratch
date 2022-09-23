@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+
 struct CameraImage {
     int window_w, window_h, window_step, samples, max_ref, window_step_x, window_step_y;
     float speed, offset_step, max_dist;

@@ -78,12 +78,15 @@ void Camera::LoadToShader(sf::Shader& shader) const {
 void Camera::MoveForward() {
     dir += {1.0, 0.0, 0.0};
 }
+
 void Camera::MoveLeft() {
     dir += {0.0, -1.0, 0.0};
 }
+
 void Camera::MoveBack() {
     dir += {-1.0, 0.0, 0.0};
 }
+
 void Camera::MoveRight() {
     dir += {0.0, 1.0, 0.0};
 }

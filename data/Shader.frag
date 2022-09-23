@@ -16,15 +16,15 @@ uniform vec4 u_pla_col;
 
 uniform int u_sph_num;
 uniform int u_box_num;
-uniform int u_tri_num;
+uniform int u_triange_num;
 
 uniform vec4 u_sph_cord[100];
 uniform vec3 u_box_cord[200];
-uniform mat3 u_tri_cord[100];
+uniform mat3 u_triange_cord[100];
 
 uniform vec4 u_sph_col[100];
 uniform vec4 u_box_col[100];
-uniform vec4 u_tri_col[100];
+uniform vec4 u_triange_col[100];
 
 
 vec3 light = normalize(vec3(0.0, u_light.x, u_light.y));
@@ -191,13 +191,13 @@ float[9] ObjectIntersection(vec3 ro, vec3 rd) {
     }
 
     for (int i = 0; i < u_tri_num; i++) {
-        it = vec2(triIntersection(ro, rd, u_tri_cord[i][0], u_tri_cord[i][1], u_tri_cord[i][2]));
+        it = vec2(triangeIntersection(ro, rd, u_triange_cord[i][0], u_triange_cord[i][1], u_triangle_cord[i][2]));
         if (it.x > 0.0 && it.x < minIt.x) {
             minIt = it;
-            vec3 v0 = u_tri_cord[i][0] - u_tri_cord[i][1];
-            vec3 v1 = u_tri_cord[i][2] - u_tri_cord[i][1];
+            vec3 v0 = u_triangle_cord[i][0] - u_triangle_cord[i][1];
+            vec3 v1 = u_triangle_cord[i][2] - u_triangle_cord[i][1];
             n = normalize(cross(v0, v1));
-            col = u_tri_col[i];
+            col = u_triangle_col[i];
         }
     }
 
